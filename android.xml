@@ -1,0 +1,131 @@
+<android>
+	<!--
+		Name: ShowTitle
+		Description:
+			Turn on/off the title bar at the top of the screen.
+		Default: false
+	-->
+	<preference name="ShowTitle" value="true|false"/>
+	<!--
+		Name: SetFullscreen
+		Default: false
+		Notes: Deprecated, use Fullscreen instead.
+	-->
+	<preference name="SetFullscreen" value="true|false"/>
+	<!--
+		Name: DisallowOverscroll
+		Description:
+			Set to true to disable the user from over scrolling the content.
+		Default: false
+		Compatibility: Gingerbread+
+	-->
+	<preference name="DisallowOverscroll" value="true|false"/>
+	<!--
+		Name: SplashScreenDelay
+		Description:
+			 The amount of time the splash screen image is displayed, measured in milliseconds.
+		Default: 3000
+		Notes: a value of 0 disables splash screen
+	-->
+	<preference name="SplashScreenDelay" value="_any_milliseconds_"/>
+	<!--
+		Name: SplashScreen
+		Description:
+			The name of the file minus its extension in the res/drawable directory to be used as the splash screen image.
+		Default: n/a
+	-->
+	<preference name="SplashScreen" value="_any_resource_"/>
+	<!--
+		Name: BackgroundColor
+		Default: 0, which is black.
+		Description:
+			Sets the webview's background color. Used for when the webview isn't loaded, or the loaded page has a transparent background.
+		Details:
+			Color is represented by the algorithm: (alpha << 24) | (red << 16) | (green << 8) | blue
+			Where alpha, red, green, and blue are integers of the color value from 0 to 255.
+			Peach at 50% opacity would be represented as:
+				(ceil(255 / 2) << 24) | (255 << 16) | (229 << 8) | 180 = 2147476916
+	-->
+	<preference name="BackgroundColor" value="_any_number_"/>
+	<!--
+		Name: KeepRunning
+		Description:
+			Determines whether the application stays running in the background even after a pause event fires. Note: setting this to false will not kill the app after a pause event, it will only halt execution of code in the cordova webview while the app is in the background.
+		Default: true
+	-->
+	<preference name="KeepRunning" value="true|false"/>
+	<!--
+		Name: LoadingDialog
+		Description:
+			Show a loading dialog for the first page of your app.
+		Default: n/a
+		Details:
+			Set to a string with the title and message of the dialog seperated by a comma.
+			Loading,Please wait!!
+			Will show this dialog:
+			[  Loading  ]
+			Please Wait!!
+			    [*]
+	-->
+	<preference name="LoadingDialog" value="_any_string_"/>
+	<!--
+		Name: LoadingPageDialog
+		Description:
+			Show a loading dialog for each subsequent page of your app.
+		Default: n/a
+		Details:
+			Set to a string with the title and message of the dialog seperated by a comma.
+			Loading,Please wait!!
+			Will show this dialog:
+			[  Loading  ]
+			Please Wait!!
+			    [*]
+	-->
+	<preference name="LoadingPageDialog" value="_any_string_"/>
+	<!--
+		Name: errorUrl
+		Description:
+			Show an error page at url when an error occurs.
+		Default: n/a
+	-->
+	<preference name="errorUrl" value="_any_valid_uri_"/>
+	<!--
+		Name: url
+		Description:
+			Some kind of url override? Not sure.
+		Reference:
+		    public void loadUrl(String url) {
+		        if (url.equals("about:blank") || url.startsWith("javascript:")) {
+		            this.loadUrlNow(url);
+		        }
+		        else {
+
+		            String initUrl = this.getProperty("url", null);
+
+		            // If first page of app, then set URL to load to be the one passed in
+		            if (initUrl == null) {
+		                this.loadUrlIntoView(url);
+		            }
+		            // Otherwise use the URL specified in the activity's extras bundle
+		            else {
+		                this.loadUrlIntoView(initUrl);
+		            }
+		        }
+		    }
+	-->
+	<preference name="url" value=""/>
+	<!--
+		Name: LoadUrlTimeoutValue
+		Description:
+			When loading a page, the amount of time to wait before throwing a timeout error.
+		Default: 20000
+	-->
+	<preference name="LoadUrlTimeoutValue" value="_any_milliseconds_"/>
+	<!--
+		Name: Fullscreen
+		Description:
+			Set to true to hide the status bar at the top of the device and make your app full screen.
+		Default: false
+	-->
+	<preference name="Fullscreen" value="true|false"/>
+</android>
