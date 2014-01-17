@@ -1,0 +1,128 @@
+<ios>
+	<!--
+		Name: EnableViewportScale
+		Description:
+			Set to true to allow a viewport meta tag to either disable or restrict the range of user scaling, which is enabled by default.
+		Default: false
+	-->
+	<preference name="EnableViewportScale" value="true|false"/>
+	<!--
+		Name: AllowInlineMediaPlayback
+		Description:
+			Set to true to allow HTML5 media playback to appear inline within the screen layout, using browser-supplied controls rather than native controls. For this to work, add the webkit-playsinline attribute to any <video> elements.
+		Default: false
+		Compatibility: iOS 4.0+
+	-->
+	<preference name="AllowInlineMediaPlayback" value="true|false"/>
+	<!--
+		Name: MediaPlaybackRequiresUserAction
+		Description:
+			Set to false to prevent HTML5 videos or audios from playing automatically with the autoplay attribute or via JavaScript.
+		Default: true
+	-->
+	<preference name="MediaPlaybackRequiresUserAction" value="true|false"/>
+	<!--
+		Name: DisallowOverscroll
+		Description:
+			Prevent bouncing of webview pages.
+		Default: false
+	-->
+	<preference name="DisallowOverscroll" value="true|false"/>
+	<!--
+		Name: UIWebViewBounce
+		Description:
+			Allow bouncing of webview pages.
+		Default: true
+	-->
+	<preference name="UIWebViewBounce" value="true|false"/>
+	<!--
+		NOTICE
+		DisallowOverscroll and UIWebViewBounce have the same effect.
+		DisallowOverscroll is checked first, if it doesn't exist in
+		your config, then UIWebViewBounce is checked. If neither are set
+		then the default is to allow webview bouncing.
+	-->
+	<!--
+		Name: UIWebViewDecelerationSpeed
+		Description:
+			Increase/decrease scrolling speed.
+		Default: fast??
+		Notes:
+			Not sure if this will actually have any effect. Judging
+			by the code it will not. The "normal" option does not actually exist. The
+			code checks if the value is anything but fast, and if so sets the rate to normal.
+			But no where in the code does it set it to fast.
+		Reference:
+		    NSString* decelerationSetting = [self settingForKey:@"UIWebViewDecelerationSpeed"];
+		    if (![@"fast" isEqualToString : decelerationSetting]) {
+		        [self.webView.scrollView setDecelerationRate:UIScrollViewDecelerationRateNormal];
+		    }
+	-->
+	<preference name="UIWebViewDecelerationSpeed" value="fast"/>
+	<!--
+		Name: KeyboardDisplayRequiresUserAction
+		Description:
+			Set to false to allow the keyboard to appear when calling focus() on form inputs.
+		Default: true
+		Compatibility: iOS 6.0+
+	-->
+	<preference name="KeyboardDisplayRequiresUserAction" value="true|false"/>
+	<!--
+		Name: SuppressesIncrementalRendering
+		Description:
+			Set to true to wait until all content has been received before it renders to the screen.
+		Default: false
+		Compatibility: iOS 6.0+
+	-->
+	<preference name="SuppressesIncrementalRendering" value="true|false"/>
+	<!--
+		Name: GapBetweenPages
+		Description:
+			The size of the gap, in points, between pages.
+		Default: 0.0
+		Compatibility: iOS 7.0+
+	-->
+	<preference name="GapBetweenPages" value="_any_float_value_"/>
+	<!--
+		Name: PageLength
+		Description:
+			The size of each page, in points, in the direction that the pages flow. When PaginationMode is right to left or left to right, this property represents the width of each page. When PaginationMode is topToBottom or bottomToTop, this property represents the height of each page. The default value is 0, which means the layout uses the size of the viewport to determine the dimensions of the page.
+		Default: 0.0
+		Compatibility: iOS 7.0+
+	-->
+	<preference name="PageLength" value="_any_float_value_"/>
+	<!--
+		Name: PaginationBreakingMode
+		Description:
+			The manner in which column or page-breaking occurs. This property determines whether certain CSS properties regarding column and page-breaking are honored or ignored. When this property is set to column, the content respects the CSS properties related to column-breaking in place of page-breaking.
+		Default: page
+		Compatibility: iOS 7.0+
+	-->
+	<preference name="PaginationBreakingMode" value="page|column"/>
+	<!--
+		Name: PaginationMode
+		Description:
+			This property determines whether content in the web view is broken up into pages that fill the view one screen at a time, or shown as one long scrolling view. If set to a paginated form, this property toggles a paginated layout on the content, causing the web view to use the values of PageLength and GapBetweenPages to relayout its content.
+		Default: unpaginated
+		Compatibility: iOS 7.0+
+	-->
+	<preference name="PaginationMode" value="unpaginated|lefttoright|toptobottom|bottomtotop|righttoleft"/>
+	<!--
+		Name: BackupWebStorage
+		Description:
+			Set to cloud to allow web storage data to backup via iCloud. Set to local to allow only local backups via iTunes sync. Set to none prevent web storage backups.
+		Default: cloud
+		Compatibility: iOS 5.1+
+	-->
+	<preference name="BackupWebStorage" value="cloud|local"/>
+	<!--
+		Name: TopActivityIndicator
+		Description:
+			Controls the appearance of the small spinning icon in the status bar that indicates significant processor activity. Valid values are whiteLarge, white, and gray.
+		Default: gray
+		Notes:
+			This is a documented features but I was unable to find any reference to it in the code. So this
+			may not actually have any effect.
+	-->
+	<preference name="TopActivityIndicator" value="whiteLarge|white|gray"/>
+</ios>
